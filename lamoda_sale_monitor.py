@@ -56,7 +56,7 @@ def compose_email(price_1):
 
 
 price_history = {'brand': [get_brand(url)], 'model': [get_model(url)], 'price': [get_price(url)]}
-i = 0
+
 while True:
     act_price = get_price(url)
     if act_price > price_history['price'][-1]:
