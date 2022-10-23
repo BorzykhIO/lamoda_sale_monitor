@@ -39,7 +39,7 @@ def get_price(link):
 
 def compose_email(price_1):
     email_sender = 'ivan4borzyh@gmail.com'
-    email_password = 'your passord here'
+    email_password = 'your password here' #put your gmail app password here
     email_reciever = 'ivan2borzyh@gmail.com'
     subject = f'{get_brand(url)} {get_model(url)} IS ON SALE!'
     body = f'Hey! \ {get_brand(url)} {get_model(url)} is on sale! \n' \
@@ -55,9 +55,9 @@ def compose_email(price_1):
         smtp.sendmail(email_sender, email_reciever, em.as_string())
 
 
-price_history = {'brand': [get_brand(url)], 'model': [get_model(url)], 'price': [get_price(url)]}
+price_history = {'brand': [get_brand(url)], 'model': [get_model(url)], 'price': [get_price(url)]} #dictionary that contains prices history
 
-while True:
+while True: #infinite loop that checks the price every 60 minutes 
     act_price = get_price(url)
     if act_price > price_history['price'][-1]:
         compose_email(act_price)
